@@ -5,8 +5,8 @@ type Config struct {
 		Port int    `mapstructure:"port"`
 		Host string `mapstructure:"host"`
 	} `mapstructure:"server"`
-	MySQLSetting MySQLSetting `mapstructure:"mysql"`
-	LogSetting   LogSetting   `mapstructure:"logger"`
+	MySQL MySQLSetting `mapstructure:"mysql"`
+	Log   LogSetting   `mapstructure:"logger"`
 }
 
 type MySQLSetting struct {
