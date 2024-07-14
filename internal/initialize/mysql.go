@@ -19,9 +19,8 @@ func CheckErrorPanic(err error, errString string) {
 
 func InitMySQL() {
 	m := global.Config.MySQL
-	dns := "%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local"
-	var s = fmt.Sprintf(dns, m.User, m.Password, m.Host, m.Port, m.Dbname)
-	db, err := gorm.Open(mysql.Open(s), &gorm.Config{
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", m.User, m.Password, m.Host, m.Port, m.Dbname)
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		SkipDefaultTransaction: false,
 	})
 	CheckErrorPanic(err, "Failed to connect to MySQL")
@@ -30,6 +29,8 @@ func InitMySQL() {
 
 	// Set Pool
 	SetPool()
+
+	// Migrate tables
 	migrateTables()
 }
 
