@@ -1,6 +1,7 @@
 server:
   port: 8082
   host: localhost
+  mode: dev
 mysql:
   host: localhost
   port: 3306
