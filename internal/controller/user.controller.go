@@ -23,3 +23,13 @@ func (uc *UserController) GetUserById(c *gin.Context) {
 	user := uc.userService.Register("email", "purpose")
 	response.SuccessResponse(c, http.StatusOK, 2001, user)
 }
+
+func (uc *UserController) Login(c *gin.Context) {
+	user := uc.userService.Login("email", "password")
+	response.SuccessResponse(c, http.StatusOK, 2001, user)
+}
+
+func (uc *UserController) Register(c *gin.Context) {
+	user := uc.userService.GetInfoUser("uid")
+	response.SuccessResponse(c, http.StatusOK, 2001, user)
+}

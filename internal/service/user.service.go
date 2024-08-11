@@ -5,10 +5,16 @@ import "go-ecommerce-backend-api/internal/repo"
 type IUserService interface {
 	Register(email string, purpose string) int
 	GetInfoUser(uid string) string
+	Login(email string, password string) string
 }
 
 type UserService struct {
 	userRepo *repo.UserRepo
+}
+
+func (us UserService) Login(email string, password string) string {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (us UserService) Register(email string, purpose string) int {
